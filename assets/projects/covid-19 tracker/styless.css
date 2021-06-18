@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #434a54;
+}
+
+body {
+  background-color: #e6e9ed;
+  margin: 3rem 2rem 10rem 2rem;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.842),
+      rgb(255, 255, 255)
+    ),
+    url(background.jpg);
+  background-size: cover;
+  background-position: center;
+  user-select: none;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  font-size: 3rem;
+  color: #4a89dc;
+}
+
+h5 {
+  font-size: 0.8rem;
+}
+
+#date-time {
+  display: flex;
+  justify-content: center;
+  color: #434a54;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.covid__cards {
+  margin: 2rem;
+  width: 20rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.covid__names {
+  line-height: 2;
+  color: #434a54;
+}
+
+.covid__values {
+  font-size: 1.5em;
+  color: #434a54;
+}
+
+.covid__death {
+  font-size: 1.5em;
+  color: #da4453;
+}
+.covid__recover {
+  font-size: 1.5em;
+  color: #8cc152;
+}
+.covid__conf {
+  font-size: 1.5em;
+  color: #ffce54;
+}
+
+.vaccine__link {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.fas {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h5 {
+    font-size: 0.7rem;
+  }
+
+  .covid__cards {
+    margin: 1rem;
+    width: 15rem;
+    height: 8rem;
+  }
+
+  .vaccine__link {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 0.6rem;
+  }
+  .vaccine__link {
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  .vaccine__link {
+    font-size: 0.7rem;
+  }
+}

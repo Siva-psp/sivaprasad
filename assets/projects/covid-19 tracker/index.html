@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styless.css" />
+    <link rel="shortcut icon" href="covid.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>COVID-19 India Tracker</h1>
+    <h5><span id="date-time"></span></h5>
+    <main>
+      <div class="covid__cards">
+        <p class="covid__conf"><i class="far fa-plus-square"></i></p>
+        <p class="covid__names">NewConfirmed</p>
+        <p class="covid__values" id="newconfirmed"></p>
+      </div>
+      <div class="covid__cards">
+        <p class="covid__recover"><i class="far fa-minus-square"></i></p>
+        <p class="covid__names">NewRecovered</p>
+        <p class="covid__values" id="newrecovered"></p>
+      </div>
+      <div class="covid__cards">
+        <p class="covid__death"><i class="fas fa-skull-crossbones"></i></p>
+        <p class="covid__names">NewDeaths</p>
+        <p class="covid__values" id="newdeaths"></p>
+      </div>
+      <div class="covid__cards">
+        <p class="covid__conf"><i class="far fa-plus-square"></i></p>
+        <p class="covid__names">TotalConfirmed</p>
+        <p class="covid__values" id="totalconfirmed"></p>
+      </div>
+      <div class="covid__cards">
+        <p class="covid__recover"><i class="far fa-minus-square"></i></p>
+        <p class="covid__names">TotalRecovered</p>
+        <p class="covid__values" id="totalrecovered"></p>
+      </div>
+      <div class="covid__cards">
+        <p class="covid__death"><i class="fas fa-skull-crossbones"></i></p>
+        <p class="covid__names">TotalDeaths</p>
+        <p class="covid__values" id="totaldeaths"></p>
+      </div>
+    </main>
+
+    <a href="https://selfregistration.cowin.gov.in/"
+      ><h5 class="vaccine__link">
+        <i class="fas fa-syringe"></i>
+        Get vaccinated today to help fight aganist covid-19 (Click here for
+        vaccine registration)
+      </h5></a
+    >
+
+    <script>
+      function init() {
+        const url = "https://api.covid19api.com/summary";
+
+        $.get(url, function (data) {
+          console.log(data.Global.TotalConfirmed);
+          const date = data.Countries[76].Date;
+          const nc = data.Countries[76].NewConfirmed;
+          const nd = data.Countries[76].NewDeaths;
+          const nr = data.Countries[76].NewRecovered;
+          const tc = data.Countries[76].TotalConfirmed;
+          const td = data.Countries[76].TotalDeaths;
+          const tre = data.Countries[76].TotalRecovered;
+          const deathRatio = (td / tc) * 100;
+          const dr = deathRatio.toFixed(2);
+
+          $("#date").html(date);
+          $("#newconfirmed").html(nc);
+          $("#newdeaths").html(nd);
+          $("#newrecovered").html(nr);
+          $("#totalconfirmed").html(tc);
+          $("#totaldeaths").html(td);
+          $("#totalrecovered").html(tre);
+          $("#deathratio").html(dr + " %");
+        });
+      }
+      init();
+
+      var dt = new Date();
+      document.getElementById("date-time").innerHTML = dt;
+    </script>
+  </body>
+</html>
